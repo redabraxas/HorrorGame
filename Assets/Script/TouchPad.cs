@@ -43,12 +43,12 @@ public class TouchPad :MonoBehaviour {
                             default:
                                 break;
                         }
-                        player.updatePlayer(vector, true);
+                       //  player.updatePlayer(vector, true);
                         break;
                     case TouchPhase.Ended:
                         if (direction != Direction.NONE) {
                             direction = Direction.NONE;
-                            player.updatePlayer(vector, false);
+                            // player.updatePlayer(vector, false);
                         }
                         break;
                     default:
