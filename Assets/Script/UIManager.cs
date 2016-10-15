@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour {
     public Text toastText;
     public Text doButtonText;
 
+    [SerializeField]
+    private InventoryUI m_inventoryUI;
+
     public void ShowToast(bool active, string text) {
         toastView.SetActive(active);
         if (text != null) {
@@ -17,5 +20,15 @@ public class UIManager : MonoBehaviour {
 
     public void setDoButtonText(string text) {
         doButtonText.text = text;
+    }
+
+
+    public void ShowInventory()
+    {
+        m_inventoryUI.OpenInventory();
+    }
+    public void HideInventory()
+    {
+        m_inventoryUI.CloseInventory();
     }
 }

@@ -26,7 +26,7 @@ public class GameManager :MonoBehaviour {
     }
 
     public void ClickInventoryButton() {
-        // TODO(sunwoo):
+        uiManager.ShowInventory();
     }
 
     public void ClickSettingButton() {
@@ -39,11 +39,16 @@ public class GameManager :MonoBehaviour {
                 uiManager.ShowToast(true, "무언가 적혀있다. ...탈출하고 싶다...");
                 uiManager.setDoButtonText(DO_OK);
                 isCancelable = true;
+
+                collider.GetComponent<GetItemObject>().GetItem();
+
                 break;
             case "bed":
                 uiManager.ShowToast(true, "내가 누워있던 침대. 많이 낡았다. 여기저기 헤져있다.");
                 uiManager.setDoButtonText(DO_OK);
                 isCancelable = true;
+
+                collider.GetComponent<GetItemObject>().GetItem();
                 break;
         }
     }
