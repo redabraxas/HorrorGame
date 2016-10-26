@@ -9,6 +9,7 @@ public class GameManager :MonoBehaviour {
 
     public Player player;
     public UIManager uiManager;
+    public DoorLock doorLock;
 
     public void ClickDoButton() {
         if (isCancelable) {
@@ -41,7 +42,6 @@ public class GameManager :MonoBehaviour {
                 isCancelable = true;
 
                 collider.GetComponent<GetItemObject>().GetItem();
-
                 break;
             case "bed":
                 uiManager.ShowToast(true, "내가 누워있던 침대. 많이 낡았다. 여기저기 헤져있다.");
@@ -49,6 +49,11 @@ public class GameManager :MonoBehaviour {
                 isCancelable = true;
 
                 collider.GetComponent<GetItemObject>().GetItem();
+                break;
+            case "door1":
+            case "door2":
+                doorLock.OpenDoorLockPopUp();
+                isCancelable = false;
                 break;
         }
     }
