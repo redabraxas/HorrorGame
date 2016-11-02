@@ -24,8 +24,12 @@ public class DoorLock: MonoBehaviour {
             Debug.Log("비밀번호 맞음");
             CloseDoorLckPopUp();
         }
-        //else ToDo(부) 틀렸을 떄 처리
-	}
+        else if (password != 1234 && tvPassword4.text != "*") {
+            Debug.Log("비밀번호 틀림");
+            CloseDoorLckPopUp();
+            //ToDo(부) 틀렸을 떄 패널티
+        }
+    }
 
     public void TouchPasswordButton(int num) {
         if(tvPassword1.text == "*") {
