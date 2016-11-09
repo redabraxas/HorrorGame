@@ -6,10 +6,12 @@ public class GameManager :MonoBehaviour {
     public string DO_SEARCH = "조사/행동";
     public string DO_OK = "확인";
     private bool isCancelable = false;
+    private bool myAnswer = false;
 
     public Player player;
     public UIManager uiManager;
     public DoorLock doorLock;
+    public GameObject toastSelectionView;
 
     public void ClickDoButton() {
         if (isCancelable) {
@@ -55,10 +57,19 @@ public class GameManager :MonoBehaviour {
                 isCancelable = false;
                 break;
             case "door2":
-                player.transform.position = new Vector2(0, (float)7.5);
+                //uiManager.ShowSelectionToast(true, "문을 열고 나간다.", "door");
+                //if (myAnswer == true) {
+                    player.transform.position = new Vector2(0, (float)7.5);
+                //}          
                 break;
             default:
                 break;
         }
+    }
+
+    public void TouchSelection(bool answer) {
+        myAnswer = answer;
+        Debug.Log("반응");
+        toastSelectionView.SetActive(false);
     }
 }
