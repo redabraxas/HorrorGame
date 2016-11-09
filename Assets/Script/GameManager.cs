@@ -51,9 +51,13 @@ public class GameManager :MonoBehaviour {
                 collider.GetComponent<GetItemObject>().GetItem();
                 break;
             case "door1":
-            case "door2":
                 doorLock.OpenDoorLockPopUp();
                 isCancelable = false;
+                break;
+            case "door2":
+                player.transform.position = new Vector2(0, (float)7.5);
+                break;
+            default:
                 break;
         }
     }
